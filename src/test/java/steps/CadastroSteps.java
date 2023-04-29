@@ -1,26 +1,27 @@
 package steps;
 
-import cucumber.api.java.pt.Dado;
-import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
-import org.openqa.selenium.WebDriver;
-import pages.LoginPage;
+import pages.CadastroPage;
 import runner.RunCucumberTest;
 
 public class CadastroSteps extends RunCucumberTest {
-
-    LoginPage loginPage = new LoginPage(driver);
+    CadastroPage cadastroPage = new CadastroPage();
 
     @Quando("^eu preencho o formulário de cadastro$")
     public void euPreenchoOFormularioDeCadastro() {
+        cadastroPage.selectTitle(1);
+        cadastroPage.preencheNome("Mateusss");
+        cadastroPage.preencheSobrenome("Neresss");
+        cadastroPage.preencheSenha("1234567");
+        cadastroPage.dataAniversario(23, 2, "2000");
+        cadastroPage.botaoRegistrar();
+
     }
 
-    @E("^clico em registrar$")
-    public void clicoEmRegistrar() {
-    }
 
     @Então("^vejo a mensagem de cadastro realizado com sucesso$")
     public void vejoAMensagemDeCadastroRealizadoComSucesso() {
+        cadastroPage.validaCadastro();
     }
 }

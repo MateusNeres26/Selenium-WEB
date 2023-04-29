@@ -3,19 +3,20 @@ package support;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import runner.RunBase;
 import runner.RunCucumberTest;
 
 import java.time.Duration;
 import java.util.Random;
 
-public class Utils extends RunCucumberTest {
+public class Utils extends RunBase {
 
-    public void waitElementBePresent(By element, int tempo){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(tempo));
+    public static void waitElementBePresent(By element, int tempo){
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(tempo));
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public String getRandomEmail(){
+    public static String getRandomEmail(){
 
         String email_init = "qazando_";
         String email_final = "@qazando.com.br";

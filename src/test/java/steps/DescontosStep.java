@@ -9,7 +9,7 @@ import runner.RunCucumberTest;
 
 public class DescontosStep extends RunCucumberTest {
 
-    HomePage homePage = new HomePage(driver);
+    HomePage homePage = new HomePage();
     @Dado("^que estou no site da qazando$")
     public void queEstouNoSiteDaQazando() {
         homePage.acessarAplicação();
